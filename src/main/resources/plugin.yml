@@ -1,0 +1,5 @@
+name: ChatBlink
+version: ${project.version}
+main: net.kunmc.lab.chatblink.ChatBlink
+authors: [Sudo]
+description: まばたきクラフト
