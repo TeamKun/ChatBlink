@@ -1,1 +1,3 @@
 blinkRate: 0.5
+blinkTick: 20
+timerInterval: 20

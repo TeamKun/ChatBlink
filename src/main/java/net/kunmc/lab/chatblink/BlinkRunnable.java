@@ -1,13 +1,11 @@
 package net.kunmc.lab.chatblink;
 
-
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.entity.Player;
-
 
 public class BlinkRunnable extends BukkitRunnable {
 
@@ -17,19 +15,17 @@ public class BlinkRunnable extends BukkitRunnable {
 
     private int countLimit = 0;
 
+    private int blinkTick = 0;
+
     /**
      * 付与するポーションレベル
      */
     private final int POTION_LEVEL = 10;
 
-    /**
-     * まばたきの長さ
-     */
-    private final int DURATION = 20;
-
-    public BlinkRunnable(Player player, int countLimit) {
+    public BlinkRunnable(Player player, int countLimit, int blinkTick) {
         this.player = player;
         this.countLimit = countLimit;
+        this.blinkTick = blinkTick;
     }
 
     public void run() {
@@ -41,9 +37,9 @@ public class BlinkRunnable extends BukkitRunnable {
                 location,
                 1
         );
-        player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, DURATION, POTION_LEVEL));
+        player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, blinkTick, POTION_LEVEL));
         count++;
-        if( count > countLimit){
+        if (count > countLimit) {
             cancel();
         }
     }

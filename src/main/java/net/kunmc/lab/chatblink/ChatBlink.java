@@ -10,8 +10,10 @@ public final class ChatBlink extends JavaPlugin {
         saveDefaultConfig();
         FileConfiguration config = getConfig();
         double blinkRate = Double.parseDouble(config.getString("blinkRate"));
+        int blinkTick = Integer.parseInt(config.getString("blinkTick"));
+        int timerInterval = Integer.parseInt(config.getString("timerInterval"));
 
-        getServer().getPluginManager().registerEvents(new PlayerChatListener(this, blinkRate),this);
+        getServer().getPluginManager().registerEvents(new PlayerChatListener(this, blinkRate, blinkTick, timerInterval), this);
     }
 
     @Override
